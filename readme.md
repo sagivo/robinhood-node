@@ -42,11 +42,11 @@ Once you login with username&password youu should get a token in reponse. this t
 `async limitOrder(orderType, quantity, price, extraParams = {})` orderType - `buy` or `sell`. `extraParams` defined [here](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order).  
 
 ### Order
-`constructor(id)` - optional order id.
-[`status(id)`](https://github.com/sanko/Robinhood/blob/master/Order.md#gather-order-information) - get order status. order id is optional (can be set up when initiated).
-[`cancel(id)`](https://github.com/sanko/Robinhood/blob/master/Order.md#cancel-an-order) - cancel an order. order id is optional (can be set up when initiated).
-[`recent`](https://github.com/sanko/Robinhood/blob/master/Order.md#gather-recent-orders) - get recent orders..
-[`static place(params)`](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order) - manually place an order. a better use will be to interact with Stock class in order to place an order.
+`constructor(id)` - optional order id.  
+[`status(id)`](https://github.com/sanko/Robinhood/blob/master/Order.md#gather-order-information) - get order status. order id is optional (can be set up when initiated).  
+[`cancel(id)`](https://github.com/sanko/Robinhood/blob/master/Order.md#cancel-an-order) - cancel an order. order id is optional (can be set up when initiated).  
+[`recent`](https://github.com/sanko/Robinhood/blob/master/Order.md#gather-recent-orders) - get recent orders.  
+[`static place(params)`](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order) - manually place an order. a better use will be to interact with Stock class in order to place an order.  
 
 ### Account
 `constructor()`  
