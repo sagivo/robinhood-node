@@ -1,0 +1,10 @@
+{
+  "name": "robinhood-node",
+  "version": "1.0.0",
+  "main": "RobinhoodNode.js",
+  "license": "MIT",
+  "dependencies": {
+    "request": "*",
+    "request-promise-native": "*"
+  }
+}
