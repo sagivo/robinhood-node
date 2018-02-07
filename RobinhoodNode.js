@@ -26,6 +26,6 @@ module.exports = class RobinhoodNode {
   async getToken(user, password, mfa) {
     const token = await Auth.getToken(user, password, mfa);
     Request.setToken(token);
-    console.log(token);
+    return token;
   }
 }
