@@ -8,7 +8,7 @@ yarn add robinhood-node
 
 ## Use
 ```js
-const RH = require('./RobinhoodNode');
+const RH = require('robinhood-node');
 const rh = new RH({ user: 'RH user', password: 'RH password' });
 // get account
 const account = new rh.Account();
@@ -36,7 +36,7 @@ Once you login with username&password youu should get a token in reponse. this t
 
 
 ### Stock
-`constructor(symbols)` - symbols can be either string or array of symobols.  
+`constructor(symbols)` - symbols of stocks seperated by comma.  
 [`quote`](https://github.com/sanko/Robinhood/blob/master/Quote.md#gather-quote-data-by-ticker-symbol)
 
 ### Account
