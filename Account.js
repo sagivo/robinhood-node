@@ -17,6 +17,10 @@ module.exports = class Account {
     return Request.getPersonal('user');
   }
 
+  get investment() {
+    return Request.getPersonal('user/investment_profile');
+  }
+
   get basicInfo() {
     return Request.getPersonal('user/basic_info');
   }

@@ -12,9 +12,5 @@ module.exports = class Stock {
   get quote() {
     return Request.get('quotes', { symbols: this.symbols.map(s => s.toUpperCase()).join(',') } );
   }
-
-  static get foo() {
-    return Request.foo;
-  }
 }
 
