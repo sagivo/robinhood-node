@@ -16,6 +16,11 @@ console.log(await account.user);;
 // get stock quote
 const stock = new rh.Stock('AMZN');
 console.log(await stock.quote);
+const orderResponse = await stock.marketOrder('buy', 1);
+// check order and cancel
+const order = new rh.Order(orderResponse.id);
+console.log(order.status());
+order.cancel();
 ```
 
 ## Interface
