@@ -28,4 +28,10 @@ module.exports = class Request {
     extraParams.headers['Authorization'] = `Token ${token}`;
     return this.get(url, qs, extraParams);
   }
+
+  static async postPersonal(url, form, extraParams = {}) {
+    extraParams.headers = extraParams.headers || {};
+    extraParams.headers['Authorization'] = `Token ${token}`;
+    return this.post(url, form, extraParams);
+  }
 }

@@ -2,6 +2,14 @@ const Request  = require('./Request');
 
 module.exports = class Account {
 
+  static async url() {
+    if (!this._url) {
+      const accounts = await Request.getPersonal('accounts');
+      this._url = accounts.results[0].url;
+    }
+    return this._url;
+  }
+
   constructor() {
   }
 
