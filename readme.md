@@ -38,8 +38,8 @@ Once you login with username&password youu should get a token in reponse. this t
 ### Stock
 `constructor(symbols)` - symbols of stocks seperated by comma.  
 [`quote`](https://github.com/sanko/Robinhood/blob/master/Quote.md#gather-quote-data-by-ticker-symbol).  
-`async marketOrder(orderType, quantity, extraParams = {})` orderType - `buy` or `sell`. `extraParams` defined [here](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order).  
-`async limitOrder(orderType, quantity, price, extraParams = {})` orderType - `buy` or `sell`. `extraParams` defined [here](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order).  
+`marketOrder(orderType, quantity, [extraParams](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order) = {})` orderType - `buy` or `sell`.  
+`limitOrder(orderType, quantity, price, [extraParams]((https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order)) = {})` orderType - `buy` or `sell`.  
 
 ### Order
 `constructor(id)` - optional order id.  
