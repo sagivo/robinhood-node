@@ -1,6 +1,6 @@
 # Robinhood node
-Trade stocks for free with simple to use library.  
-This is a node.js implementation of the undocumented [Robinhood API](https://github.com/sanko/Robinhood).  
+Trade stocks for **FREE** with this simple to use NodeJS library.  
+Yes, it's really free using [Robinhood](http://share.robinhood.com/sagivo) service and their [undocumented API](https://github.com/sanko/Robinhood).  
 The motivation behind this tool is to aggregate functions based on logic and not necessary api domain.  
 
 ## Install
