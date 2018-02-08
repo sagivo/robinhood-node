@@ -1,5 +1,7 @@
 # Robinhood node
 Trade stocks for free with simple to use library.  
+This is a node.js implementation of the undocumented [Robinhood API](https://github.com/sanko/Robinhood).  
+The motivation behind this tool is to aggregate functions based on logic and not necessary api domain.  
 
 ## Install
 ```
@@ -16,7 +18,7 @@ console.log(await account.user);;
 // get stock quote
 const stock = new rh.Stock('AMZN');
 console.log(await stock.quote);
-const orderResponse = await stock.marketOrder('buy', 1);
+const orderResponse = await stock.buy(1);
 // check order and cancel
 const order = new rh.Order(orderResponse.id);
 console.log(order.status());
@@ -43,8 +45,16 @@ Once you login with username&password youu should get a token in reponse. this t
 ### Stock
 `constructor(symbols)` - symbols of stocks seperated by comma.  
 [`quote`](https://github.com/sanko/Robinhood/blob/master/Quote.md#gather-quote-data-by-ticker-symbol) - get latest quote for symbol(s).  
-[`marketOrder(orderType, quantity, extraParams = {})`](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order) - orderType - `buy` or `sell`.  
-[`limitOrder(orderType, quantity, price, extraParams = {})`](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order) orderType - `buy` or `sell`.  
+#### Stock actions
+You can place orders directly from the stock class. For information about order types [click here](https://support.robinhood.com/hc/en-us/articles/208650386-Order-Types). For a list of extra params available [click here](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order).  
+`buy(quantity, extraParams = {})`  
+`sell(quantity, extraParams = {})`  
+`buyLimit(quantity, price, extraParams = {})`  
+`sellLimit(quantity, price, extraParams = {})`  
+`stopLossSell(quantity, stopPrice, extraParams = {})`  
+`stopLossBuy(quantity, stopPrice, extraParams = {})`  
+`stopLossSellLimit(quantity, stopPrice, sellPrice, extraParams = {})`  
+`stopLossBuyLimit(quantity, stopPrice, buyPrice, extraParams = {})`  
 
 ### Order
 `constructor(id)` - optional order id.  
@@ -61,3 +71,6 @@ Once you login with username&password youu should get a token in reponse. this t
 [`basicInfo`](https://github.com/sanko/Robinhood/blob/master/Account.md#gather-basic-information-about-the-account-holder)  
 [`investment`](https://github.com/sanko/Robinhood/blob/master/Account.md#gather-investment-profile-data-about-the-account-holder)  
 
+
+## TODO
+There are a lot of [API calls](https://github.com/sanko/Robinhood) that are still not implemented here. The important calls are. Any help or PR will be highly appriciated!  

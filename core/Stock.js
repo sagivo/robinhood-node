@@ -24,29 +24,104 @@ module.exports = class Stock {
     return this.instruments[symbol];
   }
 
-  async marketOrder(orderType, quantity, extraParams = {}) {
+  async makeOrder(params) {
     const orderParams = await this.getOrderParams();
     return Order.place({
-      quantity,
-      side: orderType,
-      type: 'market',
       ...orderParams,
-      ...extraParams,
+      ...params,
     });
   }
 
-  async limitOrder(orderType, quantity, price, extraParams = {}) {
-    const orderParams = await this.getOrderParams();
-    return Order.place({
+  // basic
+  async buy(quantity, extraParams = {}) {
+    const price = (await this.quote).results[0].last_trade_price;
+    return this.makeOrder({
+      quantity,
       price,
-      quantity,
-      side: orderType,
-      type: 'limit',
-      ...orderParams,
+      side: 'buy',
       ...extraParams,
     });
   }
 
+  async sell(quantity, extraParams = {}) {
+    const price = (await this.quote).results[0].last_trade_price;
+    return this.makeOrder({
+      quantity,
+      price,
+      side: 'sell',
+      ...extraParams,
+    });
+  }
+
+  // limit
+  async buyLimit(quantity, price, extraParams = {}) {
+    return this.makeOrder({
+      quantity,
+      price,
+      side: 'buy',
+      type: 'limit',
+      ...extraParams,
+    });
+  }
+
+  async sellLimit(quantity, price, extraParams = {}) {
+    return this.makeOrder({
+      quantity,
+      price,
+      side: 'sell',
+      type: 'limit',
+      ...extraParams,
+    });
+  }
+
+  // stop loss
+  async stopLossSell(quantity, stopPrice, extraParams = {}) {
+    return this.makeOrder({
+      quantity,
+      side: 'sell',
+      trigger: 'stop',
+      stop_price: stopPrice,
+      ...extraParams,
+    });
+  }
+
+  async stopLossBuy(quantity, price, extraParams = {}) {
+    return this.makeOrder({
+      quantity,
+      side: 'buy',
+      trigger: 'stop',
+      price,
+      stop_price: price,
+      ...extraParams,
+    });
+  }
+
+  // stop loss + limit
+  async stopLossSellLimit(quantity, stopPrice, sellPrice, extraParams = {}) {
+    return this.makeOrder({
+      quantity,
+      side: 'sell',
+      type: 'limit',
+      trigger: 'stop',
+      price: sellPrice,
+      stop_price: stopPrice,
+      ...extraParams,
+    });
+  }
+
+  async stopLossBuyLimit(quantity, stopPrice, buyPrice, extraParams = {}) {
+    return this.makeOrder({
+      quantity,
+      side: 'buy',
+      type: 'limit',
+      trigger: 'stop',
+      price: buyPrice,
+      stop_price: stopPrice,
+      ...extraParams,
+    });
+  }
+
+  // helper
   async getOrderParams() {
     return {
       instrument: (await this.instrument()).results[0].url,
