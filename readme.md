@@ -14,7 +14,7 @@ const RH = require('robinhood-node');
 const rh = new RH({ user: 'RH user', password: 'RH password' });
 // get account
 const account = new rh.Account();
-console.log(await account.user);;
+console.log(await account.user);
 // get stock quote
 const stock = new rh.Stock('AMZN');
 console.log(await stock.quote);
@@ -28,9 +28,12 @@ order.cancel();
 ## Interface
 Each class can be initiated from a robinhood-node instance.  
 
-### RobinhoodNode
-This is the main class to use. You can use it in anonymous mode. Some actions like selling/buying will require to login as a Robinhood user. There are 2 ways to login into the library:  
-#### user & password (&mfa key):  
+### Login
+In order to login you will need to have a Robinhood account. [Use this link](http://share.robinhood.com/sagivo) to open a free account.  
+Some of the calls (like stock quotes) can be used in anonymous mode. 
+In order to trade (sell/buy) you will require to login as a Robinhood user. 
+There are 2 ways to login into the library:  
+#### user & password [&mfa key]:  
 ```js
 new RH({ user: 'your RH email', password: 'your RH password', mfa: 12345 });
 ```
@@ -46,7 +49,8 @@ Once you login with username&password youu should get a token in reponse. this t
 `constructor(symbols)` - symbols of stocks seperated by comma.  
 [`quote`](https://github.com/sanko/Robinhood/blob/master/Quote.md#gather-quote-data-by-ticker-symbol) - get latest quote for symbol(s).  
 #### Stock actions
-You can place orders directly from the stock class. For information about order types [click here](https://support.robinhood.com/hc/en-us/articles/208650386-Order-Types). For a list of extra params available [click here](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order).  
+You can place orders directly from the stock class. For information about order types [click here](https://support.robinhood.com/hc/en-us/articles/208650386-Order-Types).  
+For a list of extra params available [click here](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order).  
 `buy(quantity, extraParams = {})`  
 `sell(quantity, extraParams = {})`  
 `buyLimit(quantity, price, extraParams = {})`  
