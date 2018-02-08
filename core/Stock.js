@@ -16,14 +16,6 @@ module.exports = class Stock {
     return Request.get('quotes', { symbols: this.symbols } );
   }
 
-  async instrument(symbol) {
-    symbol = symbol || this.symbols.split(',')[0];
-    if (!this.instruments[symbol]) {
-      this.instruments[symbol] = await Request.get('instruments', { symbol });
-    }
-    return this.instruments[symbol];
-  }
-
   async makeOrder(params) {
     const orderParams = await this.getOrderParams();
     return Order.place({

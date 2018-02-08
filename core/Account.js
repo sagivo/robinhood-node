@@ -32,5 +32,26 @@ module.exports = class Account {
   get basicInfo() {
     return Request.getPersonal('user/basic_info');
   }
+
+  get watchlists() {
+    return Request.getPersonal('watchlists');
+  }
+
+  get defaultWatchlist() {
+    return Request.getPersonal('watchlists/Default');
+  }
+
+  get portfolios() {
+    return Request.getPersonal('portfolios');
+  }
+
+  async defaultPortfolio() {
+    if (!this.defaultPortfolioId) {
+      const portfolios = await this.portfolios;
+      this.defaultPortfolioId = portfolios.results[0].url.split('/').slice(-2)[0];
+    }
+    return Request.getPersonal(`portfolios/${this.defaultPortfolioId}`);
+  }
 }
 
+const instrumetSymbols = {};

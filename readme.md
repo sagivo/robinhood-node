@@ -67,6 +67,11 @@ For a list of extra params available [click here](https://github.com/sanko/Robin
 [`recent`](https://github.com/sanko/Robinhood/blob/master/Order.md#gather-recent-orders) - get recent orders.  
 [`static place(params)`](https://github.com/sanko/Robinhood/blob/master/Order.md#place-an-order) - manually place an order. a better use will be to interact with Stock class in order to place an order.  
 
+### Instrument
+[`static all`](https://github.com/sanko/Robinhood/blob/master/Instrument.md#grab-a-list-of-all-instruments)  
+[`static valueById(id)`](https://github.com/sanko/Robinhood/blob/master/Instrument.md#gather-basic-instrument-info-by-id)  
+[`static valueBySymbol(symbol)`](https://github.com/sanko/Robinhood/blob/master/Instrument.md#gather-basic-instrument-info-by-symbol)  
+
 ### Account
 `constructor()`  
 [`positions`](https://github.com/sanko/Robinhood/blob/master/Account.md#gather-account-positions)  
@@ -74,6 +79,9 @@ For a list of extra params available [click here](https://github.com/sanko/Robin
 [`user`](https://github.com/sanko/Robinhood/blob/master/Account.md#gather-basic-user-info)  
 [`basicInfo`](https://github.com/sanko/Robinhood/blob/master/Account.md#gather-basic-information-about-the-account-holder)  
 [`investment`](https://github.com/sanko/Robinhood/blob/master/Account.md#gather-investment-profile-data-about-the-account-holder)  
+[`watchlists`](https://github.com/sanko/Robinhood/blob/master/Watchlist.md)  
+[`defaultWatchlist`](https://github.com/sanko/Robinhood/blob/master/Watchlist.md)  
+`portfolios`  
 
 
 ## TODO
