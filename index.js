@@ -1,8 +1,8 @@
-const Request = require('./Request');
-const Auth = require('./Auth');
-const Account = require('./Account');
-const Stock = require('./Stock');
-const Order = require('./Order');
+const Request = require('./core/Request');
+const Auth = require('./core/Auth');
+const Account = require('./core/Account');
+const Stock = require('./core/Stock');
+const Order = require('./core/Order');
 
 module.exports = class RobinhoodNode {
   get Stock() { return Stock };

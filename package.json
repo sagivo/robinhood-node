@@ -1,7 +1,7 @@
 {
   "name": "robinhood-node",
   "version": "1.0.0",
-  "main": "RobinhoodNode.js",
+  "main": "index.js",
   "license": "MIT",
   "repository": {
     "type": "git",

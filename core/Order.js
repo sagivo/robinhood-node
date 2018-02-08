@@ -6,8 +6,7 @@ module.exports = class Order {
       !params.symbol ||
       (params.type === 'limit' && !params.price) ||
       !params.quantity ||
-      !params.side ||
-    ) return false;
+      !params.side ) return false;
 
     const defaultParams = {
       type: 'market',

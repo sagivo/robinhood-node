@@ -1,6 +1,6 @@
 const request = require('request-promise-native');
 const baseUrl = 'https://api.robinhood.com';
-let token = 1;
+let token;
 
 module.exports = class Request {
   static setToken(val) {  token = val };
