@@ -8,8 +8,18 @@
     "url": "https://github.com/sagivo/robinhood-node"
   },
   "author": "Sagiv Ofek",
+  "scripts": {
+    "build": "babel src -d publish",
+    "postinstall": "npm run build"
+  },
   "dependencies": {
+    "babel-polyfill": "*",
     "request": "*",
     "request-promise-native": "*"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "babel-preset-env": "*"
   }
 }

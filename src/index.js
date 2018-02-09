@@ -1,3 +1,4 @@
+require("babel-polyfill");
 const Request = require('./core/Request');
 const Auth = require('./core/Auth');
 const Account = require('./core/Account');
@@ -19,10 +20,6 @@ module.exports = class RobinhoodNode {
     if (params.token) {
       Request.setToken(params.token);
     }
-  }
-
-  async init() {
-    await Account.url();
   }
 
   async getToken(user, password, mfa) {
