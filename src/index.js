@@ -1,4 +1,3 @@
-require("babel-polyfill");
 const Request = require('./core/Request');
 const Auth = require('./core/Auth');
 const Account = require('./core/Account');

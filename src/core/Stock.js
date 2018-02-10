@@ -18,99 +18,88 @@ module.exports = class Stock {
 
   async makeOrder(params) {
     const orderParams = await this.getOrderParams();
-    return Order.place({
-      ...orderParams,
-      ...params,
-    });
+    return Order.place(Object.assign(orderParams, params));
   }
 
   // basic
   async buy(quantity, extraParams = {}) {
     const price = (await this.quote).results[0].last_trade_price;
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       price,
       side: 'buy',
-      ...extraParams,
-    });
+    }, extraParams));
   }
 
   async sell(quantity, extraParams = {}) {
     const price = (await this.quote).results[0].last_trade_price;
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       price,
       side: 'sell',
-      ...extraParams,
-    });
+    }, extraParams));
   }
 
   // limit
   async buyLimit(quantity, price, extraParams = {}) {
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       price,
       side: 'buy',
       type: 'limit',
-      ...extraParams,
-    });
+    }, extraParams));
   }
 
   async sellLimit(quantity, price, extraParams = {}) {
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       price,
       side: 'sell',
       type: 'limit',
-      ...extraParams,
-    });
+    }, extraParams));
   }
 
   // stop loss
   async stopLossSell(quantity, stopPrice, extraParams = {}) {
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       side: 'sell',
       trigger: 'stop',
       stop_price: stopPrice,
-      ...extraParams,
-    });
+    }, extraParams));
   }
 
   async stopLossBuy(quantity, price, extraParams = {}) {
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       side: 'buy',
       trigger: 'stop',
       price,
       stop_price: price,
-      ...extraParams,
-    });
+    }));
   }
 
   // stop loss + limit
   async stopLossSellLimit(quantity, stopPrice, sellPrice, extraParams = {}) {
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       side: 'sell',
       type: 'limit',
       trigger: 'stop',
       price: sellPrice,
       stop_price: stopPrice,
-      ...extraParams,
-    });
+    }, extraParams));
   }
 
   async stopLossBuyLimit(quantity, stopPrice, buyPrice, extraParams = {}) {
-    return this.makeOrder({
+    return this.makeOrder(Object.assign({
       quantity,
       side: 'buy',
       type: 'limit',
       trigger: 'stop',
       price: buyPrice,
       stop_price: stopPrice,
-      ...extraParams,
-    });
+    }));
   }
 
   // helper

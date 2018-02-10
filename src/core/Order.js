@@ -14,7 +14,7 @@ module.exports = class Order {
       trigger: 'immediate',
     };
 
-    const request = { ...defaultParams, ...params };
+    const request = Object.assign(defaultParams, params);
     return Request.postPersonal('orders', request);
   }
 

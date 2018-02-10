@@ -6,21 +6,19 @@ module.exports = class Request {
   static setToken(val) {  token = val };
 
   static async get(url, qs, extraParams = {}) {
-    return request({
+    return request(Object.assign({
       url: `${baseUrl}/${url}/?`,
       json: true,
       qs,
-      ...extraParams
-    });
+    }, extraParams));
   }
 
   static async post(url, form, extraParams = {}) {
-    return request.post({
+    return request.post(Object.assign({
       url: `${baseUrl}/${url}/`,
       json: true,
       form,
-      ...extraParams
-    });
+    }, extraParams));
   }
 
   static async getPersonal(url, qs, extraParams = {}) {
