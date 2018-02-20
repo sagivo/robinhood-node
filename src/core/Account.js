@@ -53,5 +53,3 @@ module.exports = class Account {
     return Request.getPersonal(`portfolios/${this.defaultPortfolioId}`);
   }
 }
-
-const instrumetSymbols = {};

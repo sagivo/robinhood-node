@@ -3,13 +3,22 @@
   "version": "1.0.9",
   "main": "src/index.js",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sagivo/robinhood-node"
-  },
   "author": "Sagiv Ofek",
   "dependencies": {
     "request": "*",
     "request-promise-native": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sagivo/robinhood-node"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/babel src -d publish",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "babel-preset-env": "*"
   }
 }

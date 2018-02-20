@@ -12,7 +12,7 @@ module.exports = class RobinhoodNode {
   get Order() { return Order };
   get Instrument() { return Instrument };
 
-  constructor(params) {
+  constructor(params = {}) {
     if (params.user && params.password) {
       this.getToken(params.user, params.password, params.mfa);
     }
