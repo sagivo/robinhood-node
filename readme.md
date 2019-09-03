@@ -13,7 +13,7 @@ yarn add robinhood-node
 const RH = require('robinhood-node');
 const rh = new RH({ user: 'RH user', password: 'RH password' });
 // or in case you have 2 factor auth:
-const rh = new RH({ user: 'RH user', password: 'RH password', mfa_code: 123455 }); 
+const rh = new RH({ user: 'RH user', password: 'RH password', mfa_code: '123456' }); 
 // get account
 const account = new rh.Account();
 console.log(await account.user);
@@ -37,7 +37,7 @@ In order to trade (sell/buy) you will require to login as a Robinhood user.
 There are 2 ways to login into the library:  
 #### user & password [&mfa key]:  
 ```js
-new RH({ user: 'your RH email', password: 'your RH password', mfa: 12345 });
+new RH({ user: 'your RH email', password: 'your RH password', mfa_code: '123456' });
 ```
 `mfa` is optional and required only if your settings on Robinhood require it. In order to get the mfa try to leave it empty and then you should get the code on your first attempt.  
 #### token:
