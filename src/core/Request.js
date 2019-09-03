@@ -23,13 +23,13 @@ module.exports = class Request {
 
   static async getPersonal(url, qs, extraParams = {}) {
     extraParams.headers = extraParams.headers || {};
-    extraParams.headers['Authorization'] = `Token ${token}`;
+    extraParams.headers['Authorization'] = `Bearer ${token}`;
     return this.get(url, qs, extraParams);
   }
 
   static async postPersonal(url, form, extraParams = {}) {
     extraParams.headers = extraParams.headers || {};
-    extraParams.headers['Authorization'] = `Token ${token}`;
+    extraParams.headers['Authorization'] = `Bearer ${token}`;
     return this.post(url, form, extraParams);
   }
 }

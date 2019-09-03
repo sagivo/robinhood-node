@@ -12,6 +12,8 @@ yarn add robinhood-node
 ```js
 const RH = require('robinhood-node');
 const rh = new RH({ user: 'RH user', password: 'RH password' });
+// or in case you have 2 factor auth:
+const rh = new RH({ user: 'RH user', password: 'RH password', mfa_code: 123455 }); 
 // get account
 const account = new rh.Account();
 console.log(await account.user);

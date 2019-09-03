@@ -13,16 +13,18 @@ module.exports = class RobinhoodNode {
   get Instrument() { return Instrument };
 
   constructor(params = {}) {
-    if (params.user && params.password) {
-      this.getToken(params.user, params.password, params.mfa);
+    if (params.username && params.password) {
+      console.log(params.username, params.password)
+      this.getToken(params.username, params.password, params.mfa_code);
     }
     if (params.token) {
       Request.setToken(params.token);
     }
   }
 
-  async getToken(user, password, mfa) {
-    const token = await Auth.getToken(user, password, mfa);
+  async getToken(username, password, mfa_code) {
+    const token = await Auth.getToken(username, password, mfa_code);
+    console.log('token',token)
     Request.setToken(token);
     return token;
   }
