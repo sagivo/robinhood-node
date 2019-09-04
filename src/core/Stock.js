@@ -13,7 +13,7 @@ module.exports = class Stock {
   }
 
   get quote() {
-    return Request.get('quotes', { symbols: this.symbols } );
+    return Request.getPersonal('quotes', { symbols: this.symbols } );
   }
 
   async makeOrder(params) {
