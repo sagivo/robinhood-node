@@ -111,4 +111,3 @@ module.exports = class Stock {
     };
   }
 }
-
